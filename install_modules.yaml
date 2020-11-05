@@ -1,8 +1,6 @@
 ---
 - hosts: database
   become: true
-  vars_files:
-  - secret
   tasks:
   - name: install certain python modules for docker
     pip:
@@ -14,7 +12,7 @@
   - name: ensure docker is started
     service:
       name: docker
-      state: present
+      state: started
     notify: 
     - start docker
   handlers:
