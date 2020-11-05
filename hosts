@@ -1,0 +1,11 @@
+[ansible-server]
+localhost
+
+[registry]
+hr079@192.168.2.82
+
+[kubernetes]
+hr079@192.168.2.88
+
+[database]
+hr079@192.168.1.127
