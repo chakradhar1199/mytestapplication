@@ -2,6 +2,10 @@
 - hosts: database
   become: true
   tasks:
+  - name: Install python pip
+    yum:
+      name: python-pip
+      state: present
   - name: install certain python modules for docker
     pip:
       name: "{{ item.name }}"
