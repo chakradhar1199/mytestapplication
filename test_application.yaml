@@ -1,8 +1,6 @@
 ---
 - hosts: kubernetes
   become: true
-  vars_files:
-  - docker_cred_vault.yaml
   tasks:
   - name: docker login
     command: docker login 192.168.2.82:5000 -u "{{username}}" -p "{{password}}"
