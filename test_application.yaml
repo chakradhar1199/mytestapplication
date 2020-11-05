@@ -2,7 +2,6 @@
 - hosts: kubernetes
   become: true
   vars_files:
-  - secret
   - docker_cred_vault.yaml
   tasks:
   - name: docker login
