@@ -24,7 +24,7 @@
       - { name: docker, version: 2.0.0 }
   - name: ensure mysql is started
     service:
-      name: mysql
+      name: mysqld
       state: started
     notify:
     - start mysql
