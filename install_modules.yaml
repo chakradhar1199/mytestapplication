@@ -7,6 +7,14 @@
       name: python-pip
       update_cache: yes
       state: present
+  - name: install the latest version of Apache from the testing repo
+    yum:
+      name: httpd
+      state: present
+  - name: install mysql
+    yum:
+      name: mysql
+      state: present
   - name: install certain python modules for docker
     pip:
       name: "{{ item.name }}"
@@ -14,6 +22,12 @@
       state: present
     with_items:
       - { name: docker, version: 2.0.0 }
+  - name: ensure mysql is started
+    service:
+      name: mysql
+      state: started
+    notify:
+    - start mysql
   - name: ensure docker is started
     service:
       name: docker
@@ -24,4 +38,8 @@
   - name: start docker
     ansible.builtin.service:
       name: docker
+      state: restarted
+  - name: start mysql
+    ansible.builtin.service:
+      name: mysql
       state: restarted
