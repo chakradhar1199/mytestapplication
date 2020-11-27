@@ -1,8 +1,8 @@
 ---
 - hosts: sample_group
-  become_method: sudo
-  become_user: root
-  become_password: "Mrsreddy@7"
+  ansible_become_method: sudo
+  ansible_become_user: root
+  ansible_become_password: Mrsreddy@7
   tasks:
   - name: Install python pip
     yum:
