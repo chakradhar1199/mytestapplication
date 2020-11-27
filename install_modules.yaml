@@ -1,5 +1,5 @@
 ---
-- hosts: awx
+- hosts: awx_group
   become: true
   tasks:
   - name: Install python pip
