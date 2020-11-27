@@ -2,7 +2,7 @@
 - hosts: sample_group
   become_method: sudo
   become_user: root
-  become_password: Mrsreddy@7
+  become_password: "Mrsreddy@7"
   tasks:
   - name: Install python pip
     yum:
