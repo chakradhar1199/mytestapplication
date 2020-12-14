@@ -7,8 +7,8 @@
     copy:
       src: /home/admin/ansible/hosts
       dest: /tmp/hosts
-      owner: root
-      group: root
+      owner: hr079
+      group: hr079
       mode: '0644'
   - name: Copy using inline content
     copy:
