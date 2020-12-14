@@ -1,0 +1,34 @@
+---
+- name: Copy Artifacts
+  hosts: ansible-tower 
+  become: true
+  tasks:
+  - name: Copy file with owner and permissions
+    copy:
+      src: /home/admin/ansible/hosts
+      dest: /tmp/hosts
+      owner: root
+      group: root
+      mode: '0644'
+  - name: Copy using inline content
+    copy:
+      content: '# This file was moved to /etc/other.conf'
+      dest: /tmp/hosts
+- name: Copy from remote host 
+  hosts: database
+  become: true
+  vars:
+    remote_node: 192.168.2.78
+  tasks:
+  - name: Fetch files from remote host
+    fetch:
+      src: flow.xml.gz
+      dest: /tmp/
+- name: Copy to dest host
+  hosts: ansible-tower
+  become: true
+  tasks:
+  - name: copying a file to destination
+    copy:
+      src: /tmp/flow.xml.gz
+      dest: /opt/
