@@ -1,5 +1,5 @@
 ---
-- hosts: sample_group
+- hosts: gcp
   become: true
   tasks:
   - name: Install python pip
