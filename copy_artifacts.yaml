@@ -15,7 +15,7 @@
       content: '# This file was moved to /etc/other.conf'
       dest: /tmp/hosts
 - name: Copy from remote host 
-  hosts: sample_group
+  hosts: gcp
   become: true
   vars:
     remote_node: 192.168.2.78
@@ -25,7 +25,7 @@
       src: flow.xml.gz
       dest: /tmp/
 - name: Copy to dest host
-  hosts: sample_group
+  hosts: gcp
   become: true
   tasks:
   - name: copying a file to destination
