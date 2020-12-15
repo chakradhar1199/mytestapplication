@@ -1,6 +1,6 @@
 ---
 - name: Copy Artifacts
-  hosts: sample_group 
+  hosts: gcp 
   become: true
   tasks:
   - name: Copy file with owner and permissions
