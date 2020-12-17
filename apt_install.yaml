@@ -3,7 +3,8 @@
   become: true
   tasks:
   - name: Update the repository cache and update package "nginx" to latest version using default release squeeze-backport
-    apt: "{{item.name}}"
+    apt: 
+      name: "{{item.name}}"
       state: present
       install_recommends: no
       update_cache: no
