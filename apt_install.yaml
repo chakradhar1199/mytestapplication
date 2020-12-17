@@ -2,4 +2,23 @@
 - hosts: gcp
   become: true
   tasks:
-  
+  - name: Update the repository cache and update package "nginx" to latest version using default release squeeze-backport
+    apt: "{{item.name}}"
+      state: present
+      install_recommends: no
+      update_cache: no
+    with_items:
+      - { name: docker}
+      - { name: nginx}
+  - name: ensure docker is started
+    service:
+      name: docker
+      state: started
+    notify: 
+    - start docker
+    handlers:
+    - name: start docker
+      ansible.builtin.service:
+        name: docker
+        state: restarted    
+   
