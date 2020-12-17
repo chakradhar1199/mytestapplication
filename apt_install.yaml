@@ -10,16 +10,5 @@
       update_cache: no
     with_items:
       - { name: docker}
-      - { name: nginx}
-  - name: ensure docker is started
-    service:
-      name: docker
-      state: started
-    notify: 
-    - start docker
-    handlers:
-    - name: start docker
-      ansible.builtin.service:
-        name: docker
-        state: restarted    
+      - { name: nginx}   
    
